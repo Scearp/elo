@@ -25,7 +25,7 @@ int main() {
     
 
     //get_player_ids()
-    int *pids = get_player_ids(ids);
+    int *pids = get_players(ids);
     free(ids);
 
     //is_int_in_array()

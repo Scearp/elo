@@ -59,29 +59,29 @@ int *read_csv(const char *filename) {
     return ints;
 }
 
-int *get_player_ids(int *raw_data) {
+int *get_players(int *raw_data) {
     int array_size = sizeof(int) * ((int) (raw_data[0] / 50));
-    int *player_ids = malloc(array_size);
+    int *players = malloc(array_size);
 
-    player_ids[0] = 0;
+    players[0] = 0;
 
     int i, j = 0;
 
     for (i=0; i<=raw_data[0]; i++) {
         if (j * sizeof(int) >= array_size - sizeof(int)) {
             array_size = array_size * 2;
-            player_ids = realloc(player_ids, array_size);
+            players = realloc(players, array_size);
         }
         if (i % 3 != 0) {
-            if (!is_int_in_array(raw_data[i], player_ids)) {
+            if (!is_int_in_array(raw_data[i], players)) {
                 j++;
-                player_ids[j] = raw_data[i];
-                player_ids[0] = j;
+                players[j] = raw_data[i];
+                players[0] = j;
             }
         }
     }
 
-    return player_ids;
+    return players;
 }
 
 match *get_matches(int *raw_data) {

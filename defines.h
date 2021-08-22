@@ -5,8 +5,4 @@ typedef struct match {
     int winner, loser, date;
 } match;
 
-typedef struct player {
-    int player, rating;
-} player;
-
 #endif
