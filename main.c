@@ -57,12 +57,11 @@ int main() {
             if (players[j] == matches[i].winner) {
                 a = j;
             }
-        }
-        for (k=0; k<=players[0]; k++) {
-            if (players[k] == matches[i].loser) {
-                b = k;
+            if (players[j] == matches[i].loser) {
+                b = j;
             }
         }
+            
         if (matches[i].date > 19950000) {
             for (k=0; k<=4; k++) {
                 if (old_ratings[a] - old_ratings[b] > 100 * k - 25 && old_ratings[a] - old_ratings[b] < 100 * k + 25) {
