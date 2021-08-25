@@ -27,8 +27,6 @@ int main() {
     }
 
     int a, b, j, k;
-    int wins[5] = {0};
-    int tots[5] = {0};
     int last_date = 0;
     int weekly_players[10000];
 
@@ -59,18 +57,6 @@ int main() {
             }
             if (players[j] == matches[i].loser) {
                 b = j;
-            }
-        }
-            
-        if (matches[i].date > 19950000) {
-            for (k=0; k<=4; k++) {
-                if (old_ratings[a] - old_ratings[b] > 100 * k - 25 && old_ratings[a] - old_ratings[b] < 100 * k + 25) {
-                    wins[k]++;
-                    tots[k]++;
-                }
-                if (old_ratings[b] - old_ratings[a] > 100 * k - 25 && old_ratings[b] - old_ratings[a] < 100 * k + 25) {
-                    tots[k]++;
-                }
             }
         }
 
