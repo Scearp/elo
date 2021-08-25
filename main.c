@@ -41,7 +41,8 @@ int main() {
                 for (j=0; j<=weekly_players[0]; j++) {
                     for (k=0; k<=players[0]; k++) {
                         if (weekly_players[j] == players[k]) {
-                            fprintf(out, "%i,%i,%i\n", last_date, players[k], ratings[k]);
+                            fprintf(out, "%i,%i,%i\n",
+                                    last_date, players[k], ratings[k]);
                         }
                     }
                 }
@@ -68,14 +69,16 @@ int main() {
         ratings[b] = ratings[b] - delta;
 
         if (!is_int_in_array(players[a], weekly_players)) {
-            weekly_players[0]++;
-            weekly_players[weekly_players[0]] = players[a];
-        }
-        if (!is_int_in_array(players[b], weekly_players)) {
+            weekly_players[0] += 2;
+            weekly_players[weekly_players[0] - 1] = players[a];
+            weekly_players[weekly_players[0]] = players[b];
+        } else {
+            if (!is_int_in_array(players[b], weekly_players)) {
             weekly_players[0]++;
             weekly_players[weekly_players[0]] = players[b];
+            }
         }
-
+        
         last_date = matches[i].date;
     }
 
